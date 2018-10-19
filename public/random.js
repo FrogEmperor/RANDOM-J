@@ -11,7 +11,28 @@ function loadJSON(file, callback) {
     };
     xobj.send(null);  
  }
- 
+
+loadJSON('/all', function(response){
+    let files = JSON.parse(response);
+    let i = 0;
+    while(files[i]){
+
+        let checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.name = "name";
+        checkbox.value = "value";
+        checkbox.id = files[i];
+
+        let lista = document.createElement('li');
+        lista.appendChild(checkbox);
+        let newText = document.createTextNode(files[i]);
+        lista.appendChild(newText)
+        document.getElementById("nombres").appendChild(lista);  
+        i++;
+
+    }  
+
+});
 
 
 function imagenes(){
@@ -22,6 +43,8 @@ function imagenes(){
     	var canvas = document.getElementById('imagenes');
 		var context = canvas.getContext("2d");
     	
+        
+
 		base_image = new Image();
   		base_image.src = "photo-storage/"+files[0];
 		base_image.onload = function(){

@@ -2,6 +2,7 @@ const fs = require('fs');
 const data = fs.readFileSync('FILE.json');
 const files = JSON.parse(data);
 
+
 const express = require('express');
 const multer = require('multer');
 const bodyParser = require('body-parser');
@@ -25,6 +26,7 @@ storage: multer.diskStorage({
     
     filename: function(req, file, next){
         console.log(file);
+
         const ext = file.mimetype.split('/')[1];
         var x = file.fieldname + '-' + Date.now() + '.'+ext;
         next(null, x);
@@ -63,7 +65,27 @@ app.get('/', function(req, res){
 });
 
 app.post('/upload',multer(multerConfig).single('foto'),function(req,res){
-   res.send('Complete!');
+  let nombre = req.body.nombre;
+      
+  var i=0;
+
+  while(files[i]){
+    i+=1;
+  }
+
+  console.log(files[i-1]);
+
+  fs.rename('public/photo-storage/'+files[i-1], 'public/photo-storage/'+ nombre + '.jpeg', (err) => {
+  if (err) throw err;
+  console.log('Rename complete!');
+  });
+  
+  files[i-1] = nombre + '.jpeg';
+  console.log(files[i-1]);
+
+  let data = JSON.stringify(files, null, 2);
+
+  fs.writeFile('FILE.json', data);
 });
 
 app.get("/all",(request,response)=> response.send(files));

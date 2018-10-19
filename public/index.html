@@ -1,21 +1,27 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<script type="text/javascript" src="random.js"></script>
+
 </head>
 <body>
-	
-	
-	<input type="text" id="nombre" />
-	</br>
+
 	<form action="/upload" enctype="multipart/form-data" method="POST"> 
     	<input type="file" name="foto" />
     	</br>
+    	<input type="text" name="nombre" />
     	<input type="submit" value="subir"/>
 	</form>
+	
+	</br>
+
+		<ul id="nombres">
+
+		</ul>
+
 	<button onclick="imagenes();">MOSTRAR</button>
 	</br>
 	<canvas id="imagenes" width="2000" height="2000"><canvas>
 
+	<script type="text/javascript" src="random.js"></script>
 </body>
 </hmlt>

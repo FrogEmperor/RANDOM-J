@@ -35,7 +35,7 @@ loadJSON('/all', function(response){
 });
 
 
-function imagenes(){
+    function imagenes(){
 
 	loadJSON("/all", function(response) {
     	let files = JSON.parse(response);
@@ -52,7 +52,36 @@ function imagenes(){
     	}
 
     	console.log(files[0]);
-	});
+    });
 
 
-}
+    }
+
+    var currentImage;
+    
+    function displayNextImage() {
+        loadJSON("/all", function(response){
+            let files = JSON.parse(response);
+        
+            let FilesLength = Object.keys(files).length;
+
+            let x = -1;
+
+            x = (x === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength); // el 3 es total del arreglo
+            document.getElementById("img").src = "photo-storage/" + files[x];
+            currentImage = files[x];  
+        })    
+    }
+
+    var cycle;
+
+    function activeCycle(){
+        cycle = setInterval(displayNextImage, 200);
+    }
+
+    function stopCycle() {
+        clearInterval(cycle);
+        console.log(currentImage);
+    }
+
+

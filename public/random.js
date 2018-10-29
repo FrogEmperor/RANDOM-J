@@ -67,9 +67,15 @@ loadJSON('/all', function(response){
 
             let x = -1;
 
-            x = (x === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength); // el 3 es total del arreglo
+            x = (x === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength); // el 3 es 
+
+            var checkB = document.getElementById(files[x]);
+
+            if(!checkB.checked){
             document.getElementById("img").src = "photo-storage/" + files[x];
             currentImage = files[x];  
+            }
+            
         })    
     }
 
@@ -77,11 +83,10 @@ loadJSON('/all', function(response){
 
     function activeCycle(){
         cycle = setInterval(displayNextImage, 200);
+        setTimeout(function(){
+            clearInterval(cycle);
+            console.log(currentImage);
+        },5000);
     }
 
-    function stopCycle() {
-        clearInterval(cycle);
-        console.log(currentImage);
-    }
-
-
+    

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+</head>
+<body>
+
+	<audio controls autoplay>
+		<source src="../sound-files/27 Victory Tune.mp3" type="audio/mp3">
+	</audio>
+	
+	<form action="/upload" enctype="multipart/form-data" method="POST"> 
+    	<input type="file" name="foto" />
+    	</br>
+    	<input type="text" name="nombre" />
+    	<input type="submit" value="subir"/>
+	</form>
+	
+	</br>
+
+		<ul id="nombres">
+
+		</ul>
+
+	<button onclick="imagenes();">MOSTRAR</button>
+	<button onclick="activeCycle();">Ciclar</button>
+
+	<button onclick="">2 Equipos</button>
+	<button onclick="team3()">3 Equipos</button>
+	<button onclick="">4 Equipos</button>
+	<button onclick="">5 Equipos</button>
+
+	<table id="tabla">
+	</table>
+	
+	</br>
+	<img id="img" src="../photo default/defaultDance.jpeg">
+	<script type="text/javascript" src="random.js"></script>
+</body>
+</html>

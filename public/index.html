@@ -5,10 +5,40 @@
 </head>
 <body>
 
-	<audio controls autoplay>
-		<source src="sound-files/27 Victory Tune.mp3" type="audio/mp3">
+	<audio id="bulletLoad">
+		<source src="sound-files/bulletLoad.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="bulletShot">
+		<source src="sound-files/bulletShot.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="cylinderSpin">	
+		<source src="sound-files/cylinderSpin.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="noBulletShot">
+		<source src="sound-files/noBulletShot.mp3" type="audio/mpeg">
 	</audio>
 
+	<audio id="revolverReload">
+		<source src="sound-files/revolver_reload.mp3" type="audio/mpeg">
+	</audio>
+	
+	<style>
+        body {
+            background-image: url("style photos/fondogei.png");
+            background-repeat: repeat;
+            background-size: 1800px 900px;
+        }
+        
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+        }
+    </style>
 	<form action="/upload" enctype="multipart/form-data" method="POST"> 
     	<input type="file" name="foto" />
     	</br>
@@ -24,14 +54,40 @@
 
 	<button onclick="imagenes();">MOSTRAR</button>
 	<button onclick="activeCycle();">Ciclar</button>
+	</br>	
+	</br>
+	<button onclick="team2()">2 Equipos</button>
+	<button onclick="team3()">3 Equipos</button>
+	<button onclick="team4()">4 Equipos</button>
+	<button onclick="team5()">5 Equipos</button>
 
-	<button onclick="">2 Equipos</button>
-	<button onclick="">3 Equipos</button>
-	<button onclick="">4 Equipos</button>
-	<button onclick="">5 Equipos</button>
+	<table id="tabla">
+	</table>
+	</br>
+	<button onclick="modoRuleta()">Ruleta rusa</button>
+
+	<a href="inicio.html">owo</a>
 
 	</br>
+	</br>
 	<img id="img" src="photo default/defaultDance.png">
+
+	<div id="ruletaDiv">
+		<p>Espacios en el cilindro</p>
+		<input type="number" id="espaciosCilindro">
+		<p>Balas cargadas</p>
+		<input type="text" id="balasCargadas">
+	</br>
+	</br>
+		<button onclick="setupRevolver()">Cargar revolver</button>
+		<button onclick="dispararRevolver()">Disparar</button>
+		<button onclick="resetRevolver()">Vaciar revolver</button>
+		<div id = "divStatus">
+
+		</div>
+	</div>
+
 	<script type="text/javascript" src="random.js"></script>
 </body>
 </html>
+

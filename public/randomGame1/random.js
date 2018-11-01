@@ -89,10 +89,9 @@ loadJSON('/all', function(response){
         },5000);
     }
 
-    function team3(){
+    function team2(){
         loadJSON('/all',function(response){
             let files = JSON.parse(response);
-            let team= [[],[],[]];
             let ran = [];
             let x = 0;
             let z = 0;
@@ -105,10 +104,51 @@ loadJSON('/all', function(response){
             for(i=0;i<FilesLength;i++){
                 f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                 
-                if(ran.includes(files[f])){
+                while(ran.includes(files[f])){
                     f =-1;
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                    console.log(f);
+                }
+                ran.push(files[f]);
+
+                if(z%2==0){
+                    var row = tabla.insertRow(z/3);
+                    c = 0;
+                }
+                z++;
+                if(x==0){
+                    var cell1 = row.insertCell(c);
+                    cell1.innerHTML = files[f];
+                    x=1;
+                }
+                else if(x==1){
+                    var cell2 = row.insertCell(c);
+                    cell2.innerHTML = files[f];
+                    x=0;
+                }
+
+                c++
+            }
+        })
+    }
+
+    function team3(){
+        loadJSON('/all',function(response){
+            let files = JSON.parse(response);
+            let ran = [];
+            let x = 0;
+            let z = 0;
+            let c = 0;
+            let index = 0;
+            let FilesLength = Object.keys(files).length;
+            let f =-1;
+            var tabla = document.getElementById("tabla");
+
+            for(i=0;i<FilesLength;i++){
+                f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                
+                while(ran.includes(files[f])){
+                    f =-1;
+                    f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                 }
                 ran.push(files[f]);
 
@@ -118,34 +158,129 @@ loadJSON('/all', function(response){
                 }
                 z++;
                 if(x==0){
-                    team[0].push(files[f]);
                     var cell1 = row.insertCell(c);
                     cell1.innerHTML = files[f];
-                    y=1;
-                }
-                if(x==1){
-                    team[1].push(files[f]);
-                    var cell2 = row.insertCell(c);
-                    cell2.innerHTML = files[f];
-                    y=2;
-                }
-                if(x==2){
-                    team[2].push(files[f]);
-                    var cell3 = row.insertCell(c);
-                    cell3.innerHTML = files[f];
-                    y=0;
-                }
-                if(y==1){
                     x=1;
                 }
-                if(y==2){
+                else if(x==1){
+                    var cell2 = row.insertCell(c);
+                    cell2.innerHTML = files[f];
                     x=2;
                 }
-                if(y==0){
+                else if(x==2){
+                    var cell3 = row.insertCell(c);
+                    cell3.innerHTML = files[f];
                     x=0;
                 }
                 c++
             }
-            console.log(team);
+        })
+    }
+
+    function team4(){
+        loadJSON('/all',function(response){
+            let files = JSON.parse(response);
+            let ran = [];
+            let x = 0;
+            let z = 0;
+            let c = 0;
+            let index = 0;
+            let FilesLength = Object.keys(files).length;
+            let f =-1;
+            var tabla = document.getElementById("tabla");
+
+            for(i=0;i<FilesLength;i++){
+                f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                
+                while(ran.includes(files[f])){
+                    f =-1;
+                    f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                }
+                ran.push(files[f]);
+
+                if(z%4==0){
+                    var row = tabla.insertRow(z/3);
+                    c = 0;
+                }
+                z++;
+                if(x==0){
+                    var cell1 = row.insertCell(c);
+                    cell1.innerHTML = files[f];
+                    x=1;
+                }
+                else if(x==1){
+                    var cell2 = row.insertCell(c);
+                    cell2.innerHTML = files[f];
+                    x=2;
+                }
+                else if(x==2){
+                    var cell3 = row.insertCell(c);
+                    cell3.innerHTML = files[f];
+                    x=3;
+                }
+                else if(x==3){
+                    var cell4 = row.insertCell(c);
+                    cell4.innerHTML = files[f];
+                    x=0;
+                }
+                c++
+            }
+        })
+    }
+
+    function team5(){
+        loadJSON('/all',function(response){
+            let files = JSON.parse(response);
+            let ran = [];
+            let x = 0;
+            let z = 0;
+            let c = 0;
+            let index = 0;
+            let FilesLength = Object.keys(files).length;
+            let f =-1;
+            var tabla = document.getElementById("tabla");
+
+            for(i=0;i<FilesLength;i++){
+                f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                
+                while(ran.includes(files[f])){
+                    f =-1;
+                    f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                }
+                ran.push(files[f]);
+
+                if(z%5==0){
+                    var row = tabla.insertRow(z/5);
+                    c = 0;
+                }
+                z++;
+                if(x==0){
+                    var cell1 = row.insertCell(c);
+                    cell1.innerHTML = files[f];
+                    x=1;
+                }
+                else if(x==1){
+                    var cell2 = row.insertCell(c);
+                    cell2.innerHTML = files[f];
+                    x=2;
+                }
+                else if(x==2){
+                    var cell3 = row.insertCell(c);
+                    cell3.innerHTML = files[f];
+                    x=3;
+                }
+                else if(x==3){
+                    var cell4 = row.insertCell(c);
+                    cell4.innerHTML = files[f];
+                    x=4;
+                }
+                else if(x==4){
+                    var cell5 = row.insertCell(c);
+                    cell5.innerHTML = files[f];
+                    x=0;
+                }
+                c++
+            }
+
         })
     }

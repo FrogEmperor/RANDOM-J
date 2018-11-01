@@ -1,3 +1,4 @@
+
 function loadJSON(file, callback) {   
 
     var xobj = new XMLHttpRequest();
@@ -14,49 +15,29 @@ function loadJSON(file, callback) {
 
 loadJSON('/all2', function(response){
     let files = JSON.parse(response);
-    let i = 0;
-    while(files[i]){
+    let FilesLength = Object.keys(files).length;
+    console.log(files);
+    for(i=0;i<FilesLength;i++){
+        console.log(files[i]);
+        if(files[i]!="borrado"){
+            var file = files[i].replace(".jpeg",""); 
+            
+            let checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.name = "name";
+            checkbox.value = "value";
+            checkbox.id = files[i];
 
-        let checkbox = document.createElement('input');
-        checkbox.type = "checkbox";
-        checkbox.name = "name";
-        checkbox.value = "value";
-        checkbox.id = files[i];
 
-        let lista = document.createElement('li');
-        lista.appendChild(checkbox);
-        let newText = document.createTextNode(files[i]);
-        lista.appendChild(newText)
-        document.getElementById("nombres").appendChild(lista);  
-        i++;
-
+            let lista = document.createElement('li');
+            lista.appendChild(checkbox);
+            let newText = document.createTextNode(file);
+            lista.appendChild(newText)
+            document.getElementById("nombre").appendChild(lista);  
+        }
     }  
 
 });
-
-
-    function imagenes(){
-
-    loadJSON("/all2", function(response) {
-        let files = JSON.parse(response);
-        
-        var canvas = document.getElementById('imagenes');
-        var context = canvas.getContext("2d");
-        
-        
-
-        base_image = new Image();
-        base_image.src = "photo-storage2/"+files[0];
-        base_image.onload = function(){
-            context.drawImage(base_image, 0, 0);
-        }
-
-        console.log(files[0]);
-    });
-
-
-    }
-
     var currentImage;
     
     function displayNextImage() {
@@ -68,14 +49,14 @@ loadJSON('/all2', function(response){
             let x = -1;
 
             x = (x === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength); // el 3 es 
+            if(files[x]!="borrado"){
+                var checkB = document.getElementById(files[x]);
 
-            var checkB = document.getElementById(files[x]);
-
-            if(!checkB.checked){
-            document.getElementById("img").src = "photo-storage2/" + files[x];
-            currentImage = files[x];  
+                if(!checkB.checked){
+                document.getElementById("img").src = "photo-storage/" + files[x];
+                currentImage = files[x];  
+                }
             }
-            
         })    
     }
 
@@ -99,35 +80,40 @@ loadJSON('/all2', function(response){
             let index = 0;
             let FilesLength = Object.keys(files).length;
             let f =-1;
-            var tabla = document.getElementById("tabla");
+            var body = document.getElementById("tabla");
+            body.innerHTML="";
+            var tabla = document.createElement("table");
 
             for(i=0;i<FilesLength;i++){
-                f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                
-                while(ran.includes(files[f])){
-                    f =-1;
+                if(files[i]!="borrado"){
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                }
-                ran.push(files[f]);
+                    
+                    while(ran.includes(files[f])){
+                        f =-1;
+                        f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                    }
+                    ran.push(files[f]);
 
-                if(z%2==0){
-                    var row = tabla.insertRow(z/3);
-                    c = 0;
-                }
-                z++;
-                if(x==0){
-                    var cell1 = row.insertCell(c);
-                    cell1.innerHTML = files[f];
-                    x=1;
-                }
-                else if(x==1){
-                    var cell2 = row.insertCell(c);
-                    cell2.innerHTML = files[f];
-                    x=0;
-                }
+                    if(z%2==0){
+                        var row = tabla.insertRow(z/2);
+                        c = 0;
+                    }
+                    z++;
+                    if(x==0){
+                        var cell1 = row.insertCell(c);
+                        cell1.innerHTML = files[f];
+                        x=1;
+                    }
+                    else if(x==1){
+                        var cell2 = row.insertCell(c);
+                        cell2.innerHTML = files[f];
+                        x=0;
+                    }
 
-                c++
+                    c++
+                }
             }
+            body.appendChild(tabla);
         })
     }
 
@@ -141,39 +127,44 @@ loadJSON('/all2', function(response){
             let index = 0;
             let FilesLength = Object.keys(files).length;
             let f =-1;
-            var tabla = document.getElementById("tabla");
+            var body = document.getElementById("tabla");
+            body.innerHTML="";
+            var tabla = document.createElement("table");
 
             for(i=0;i<FilesLength;i++){
-                f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                
-                while(ran.includes(files[f])){
-                    f =-1;
+                if(files[i]!="borrado"){
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                }
-                ran.push(files[f]);
+                    
+                    while(ran.includes(files[f])){
+                        f =-1;
+                        f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                    }
+                    ran.push(files[f]);
 
-                if(z%3==0){
-                    var row = tabla.insertRow(z/3);
-                    c = 0;
+                    if(z%3==0){
+                        var row = tabla.insertRow(z/3);
+                        c = 0;
+                    }
+                    z++;
+                    if(x==0){
+                        var cell1 = row.insertCell(c);
+                        cell1.innerHTML = files[f];
+                        x=1;
+                    }
+                    else if(x==1){
+                        var cell2 = row.insertCell(c);
+                        cell2.innerHTML = files[f];
+                        x=2;
+                    }
+                    else if(x==2){
+                        var cell3 = row.insertCell(c);
+                        cell3.innerHTML = files[f];
+                        x=0;
+                    }
+                    c++
                 }
-                z++;
-                if(x==0){
-                    var cell1 = row.insertCell(c);
-                    cell1.innerHTML = files[f];
-                    x=1;
-                }
-                else if(x==1){
-                    var cell2 = row.insertCell(c);
-                    cell2.innerHTML = files[f];
-                    x=2;
-                }
-                else if(x==2){
-                    var cell3 = row.insertCell(c);
-                    cell3.innerHTML = files[f];
-                    x=0;
-                }
-                c++
             }
+            body.appendChild(tabla);            
         })
     }
 
@@ -187,44 +178,49 @@ loadJSON('/all2', function(response){
             let index = 0;
             let FilesLength = Object.keys(files).length;
             let f =-1;
-            var tabla = document.getElementById("tabla");
+            var body = document.getElementById("tabla");
+            body.innerHTML="";
+            var tabla = document.createElement("table");
 
             for(i=0;i<FilesLength;i++){
-                f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                
-                while(ran.includes(files[f])){
-                    f =-1;
+                if(files[i]!="borrado"){
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                }
-                ran.push(files[f]);
+                    
+                    while(ran.includes(files[f])){
+                        f =-1;
+                        f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                    }
+                    ran.push(files[f]);
 
-                if(z%4==0){
-                    var row = tabla.insertRow(z/3);
-                    c = 0;
+                    if(z%4==0){
+                        var row = tabla.insertRow(z/3);
+                        c = 0;
+                    }
+                    z++;
+                    if(x==0){
+                        var cell1 = row.insertCell(c);
+                        cell1.innerHTML = files[f];
+                        x=1;
+                    }
+                    else if(x==1){
+                        var cell2 = row.insertCell(c);
+                        cell2.innerHTML = files[f];
+                        x=2;
+                    }
+                    else if(x==2){
+                        var cell3 = row.insertCell(c);
+                        cell3.innerHTML = files[f];
+                        x=3;
+                    }
+                    else if(x==3){
+                        var cell4 = row.insertCell(c);
+                        cell4.innerHTML = files[f];
+                        x=0;
+                    }
+                    c++
                 }
-                z++;
-                if(x==0){
-                    var cell1 = row.insertCell(c);
-                    cell1.innerHTML = files[f];
-                    x=1;
-                }
-                else if(x==1){
-                    var cell2 = row.insertCell(c);
-                    cell2.innerHTML = files[f];
-                    x=2;
-                }
-                else if(x==2){
-                    var cell3 = row.insertCell(c);
-                    cell3.innerHTML = files[f];
-                    x=3;
-                }
-                else if(x==3){
-                    var cell4 = row.insertCell(c);
-                    cell4.innerHTML = files[f];
-                    x=0;
-                }
-                c++
             }
+            body.appendChild(tabla);            
         })
     }
 
@@ -238,49 +234,53 @@ loadJSON('/all2', function(response){
             let index = 0;
             let FilesLength = Object.keys(files).length;
             let f =-1;
-            var tabla = document.getElementById("tabla");
+            var body = document.getElementById("tabla");
+            body.innerHTML="";
+            var tabla = document.createElement("table");
 
             for(i=0;i<FilesLength;i++){
-                f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                
-                while(ran.includes(files[f])){
-                    f =-1;
+                if(files[i]!="borrado"){
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
-                }
-                ran.push(files[f]);
+                    
+                    while(ran.includes(files[f])){
+                        f =-1;
+                        f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
+                    }
+                    ran.push(files[f]);
 
-                if(z%5==0){
-                    var row = tabla.insertRow(z/5);
-                    c = 0;
+                    if(z%5==0){
+                        var row = tabla.insertRow(z/5);
+                        c = 0;
+                    }
+                    z++;
+                    if(x==0){
+                        var cell1 = row.insertCell(c);
+                        cell1.innerHTML = files[f];
+                        x=1;
+                    }
+                    else if(x==1){
+                        var cell2 = row.insertCell(c);
+                        cell2.innerHTML = files[f];
+                        x=2;
+                    }
+                    else if(x==2){
+                        var cell3 = row.insertCell(c);
+                        cell3.innerHTML = files[f];
+                        x=3;
+                    }
+                    else if(x==3){
+                        var cell4 = row.insertCell(c);
+                        cell4.innerHTML = files[f];
+                        x=4;
+                    }
+                    else if(x==4){
+                        var cell5 = row.insertCell(c);
+                        cell5.innerHTML = files[f];
+                        x=0;
+                    }
+                    c++
                 }
-                z++;
-                if(x==0){
-                    var cell1 = row.insertCell(c);
-                    cell1.innerHTML = files[f];
-                    x=1;
-                }
-                else if(x==1){
-                    var cell2 = row.insertCell(c);
-                    cell2.innerHTML = files[f];
-                    x=2;
-                }
-                else if(x==2){
-                    var cell3 = row.insertCell(c);
-                    cell3.innerHTML = files[f];
-                    x=3;
-                }
-                else if(x==3){
-                    var cell4 = row.insertCell(c);
-                    cell4.innerHTML = files[f];
-                    x=4;
-                }
-                else if(x==4){
-                    var cell5 = row.insertCell(c);
-                    cell5.innerHTML = files[f];
-                    x=0;
-                }
-                c++
             }
-
+            body.appendChild(tabla);
         })
     }

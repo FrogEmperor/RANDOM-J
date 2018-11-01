@@ -25,7 +25,7 @@ loadJSON('/all5', function(response){
 
         let lista = document.createElement('li');
         lista.appendChild(checkbox);
-        let newText = document.createTextNode(files[i]);
+        let newText = document.createTextNode(files[i].substring(0, files[i].length() - 4));
         lista.appendChild(newText)
         document.getElementById("nombres").appendChild(lista);  
         i++;

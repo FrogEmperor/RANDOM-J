@@ -1,3 +1,14 @@
-ul {
-  list-style: none;
+
+#tabla{
+	margin-top: 20px;
 }
+table{
+	border-collapse: collapse;
+    width: 800px;
+}
+table, th, td{
+    padding: 8px;
+    text-align: left;
+}
+td:nth-child(even){background-color: #f2f2f2}
+

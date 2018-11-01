@@ -1,3 +1,4 @@
+
 function loadJSON(file, callback) {   
 
     var xobj = new XMLHttpRequest();
@@ -16,16 +17,18 @@ loadJSON('/all', function(response){
     let files = JSON.parse(response);
     let i = 0;
     while(files[i]){
-
+        var file = files[i].replace(".jpeg",""); 
+        
         let checkbox = document.createElement('input');
         checkbox.type = "checkbox";
         checkbox.name = "name";
         checkbox.value = "value";
         checkbox.id = files[i];
 
+
         let lista = document.createElement('li');
         lista.appendChild(checkbox);
-        let newText = document.createTextNode(files[i]);
+        let newText = document.createTextNode(file);
         lista.appendChild(newText)
         document.getElementById("nombres").appendChild(lista);  
         i++;
@@ -33,30 +36,6 @@ loadJSON('/all', function(response){
     }  
 
 });
-
-
-    function imagenes(){
-
-    loadJSON("/all", function(response) {
-        let files = JSON.parse(response);
-        
-        var canvas = document.getElementById('imagenes');
-        var context = canvas.getContext("2d");
-        
-        
-
-        base_image = new Image();
-        base_image.src = "photo-storage/"+files[0];
-        base_image.onload = function(){
-            context.drawImage(base_image, 0, 0);
-        }
-
-        console.log(files[0]);
-    });
-
-
-    }
-
     var currentImage;
     
     function displayNextImage() {
@@ -99,7 +78,8 @@ loadJSON('/all', function(response){
             let index = 0;
             let FilesLength = Object.keys(files).length;
             let f =-1;
-            var tabla = document.getElementById("tabla");
+            var body = document.getElementById("tabla");
+            var tabla = document.createElement("table");
 
             for(i=0;i<FilesLength;i++){
                 f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
@@ -111,7 +91,7 @@ loadJSON('/all', function(response){
                 ran.push(files[f]);
 
                 if(z%2==0){
-                    var row = tabla.insertRow(z/3);
+                    var row = tabla.insertRow(z/2);
                     c = 0;
                 }
                 z++;
@@ -128,6 +108,7 @@ loadJSON('/all', function(response){
 
                 c++
             }
+            body.appendChild(tabla);
         })
     }
 
@@ -141,7 +122,8 @@ loadJSON('/all', function(response){
             let index = 0;
             let FilesLength = Object.keys(files).length;
             let f =-1;
-            var tabla = document.getElementById("tabla");
+            var body = document.getElementById("tabla");
+            var tabla = document.createElement("table");
 
             for(i=0;i<FilesLength;i++){
                 f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
@@ -174,6 +156,7 @@ loadJSON('/all', function(response){
                 }
                 c++
             }
+            body.appendChild(tabla);            
         })
     }
 
@@ -187,7 +170,8 @@ loadJSON('/all', function(response){
             let index = 0;
             let FilesLength = Object.keys(files).length;
             let f =-1;
-            var tabla = document.getElementById("tabla");
+            var body = document.getElementById("tabla");
+            var tabla = document.createElement("table");
 
             for(i=0;i<FilesLength;i++){
                 f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
@@ -225,6 +209,7 @@ loadJSON('/all', function(response){
                 }
                 c++
             }
+            body.appendChild(tabla);            
         })
     }
 
@@ -238,7 +223,8 @@ loadJSON('/all', function(response){
             let index = 0;
             let FilesLength = Object.keys(files).length;
             let f =-1;
-            var tabla = document.getElementById("tabla");
+            var body = document.getElementById("tabla");
+            var tabla = document.createElement("table");
 
             for(i=0;i<FilesLength;i++){
                 f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
@@ -281,6 +267,6 @@ loadJSON('/all', function(response){
                 }
                 c++
             }
-
+            body.appendChild(tabla);
         })
     }

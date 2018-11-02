@@ -12,3 +12,45 @@ table, th, td{
 td:nth-child(even){
 	background-color: #f2f2f2
 }
+td:nth-child(odd){
+    background-color: #dda0dd
+}
+body {
+    background-image: url("style photos/fondogei.png");
+    background-repeat: repeat;
+    background-size: 1800px 900px;
+
+}
+
+#logoGif {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+#imagenMeme {
+    display: block;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#passwordStuff {
+    text-align: center
+}
+
+#ruletaDiv {
+    text-align: center
+}
+
+#img {
+    display: block;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+#equiposBotones {
+    text-align: center;
+}

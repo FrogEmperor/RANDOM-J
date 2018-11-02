@@ -4,10 +4,22 @@
 	<link rel="stylesheet" type="text/css" href="../estilo.css">
 </head>
 <body>
-	<audio controls autoplay>
-		<source src="../sound-files/27 Victory Tune.mp3" type="audio/mp3">
+	
+	<audio id="bulletShot">
+		<source src="../sound-files/bulletShot.mp3" type="audio/mpeg">
 	</audio>
 	
+	<audio id="cylinderSpin">	
+		<source src="../sound-files/cylinderSpin.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="noBulletShot">
+		<source src="../sound-files/noBulletShot.mp3" type="audio/mpeg">
+	</audio>
+ 	<audio id="revolverReload">
+		<source src="../sound-files/revolver_reload.mp3" type="audio/mpeg">
+	</audio>
+
 	<form action="/upload" enctype="multipart/form-data" method="POST"> 
     	<input type="file" name="foto" />
     	</br>
@@ -30,11 +42,32 @@
 	<button onclick="team4()">4 Equipos</button>
 	<button onclick="team5()">5 Equipos</button>
 	</br>
-
+	</br>
+	<button onclick="modoRuleta()">Ruleta rusa</button>
+</br>
+</br>
 	<img id="img" src="../photo default/defaultDance.jpeg">
-	<script type="text/javascript" src="random5.js"></script>
+	
+
+	<div id="ruletaDiv">
+		<p>Espacios en el cilindro</p>
+		<input type="number" id="espaciosCilindro">
+		<p>Balas cargadas</p>
+		<input type="text" id="balasCargadas">
+	</br>
+	</br>
+	<button onclick="setupRevolver()">Cargar revolver</button>
+	<button onclick="dispararRevolver()">Disparar</button>
+	<button onclick="resetRevolver()">Vaciar revolver</button>
+	<div id = "divStatus">
+	 </div>
+</div>
+</br>
+</br>
 
 	<div id="tabla">
 	</div>
+
+	<script type="text/javascript" src="random5.js"></script>
 </body>
 </html>

@@ -70,6 +70,82 @@ loadJSON('/all3', function(response){
         },5000);
     }
 
+        //TODO ESTO ES DE LA RULETA RUSAAAAAAAAA A PARTIR DE AQUI EQUISDEEQUISDEEQUISDE
+        var menuRuleta = document.getElementById("ruletaDiv");
+        menuRuleta.style.display = "none";
+         function modoRuleta(){
+            if (menuRuleta.style.display === "none"){
+                menuRuleta.style.display = "block";
+            }
+            else{
+                menubar.menuRuleta.style.display = "none";
+            }
+        }
+         var capacidad = 0;
+        
+        function array_range(start, len){
+            var cilindroRevolver = new Array(len);
+            for (var i = 0; i < len; i++, start++){
+                cilindroRevolver[i] = start;
+            }
+            return cilindroRevolver;
+        }
+         var revolver = [];
+         
+         function setupRevolver(){
+            var capacidad = parseInt (document.getElementById("espaciosCilindro").value);
+            
+            revolver = array_range(1,capacidad);
+            revolver.fill(0);
+             console.log(revolver);
+             var cargadas = parseInt (document.getElementById("balasCargadas").value);
+             console.log(cargadas);
+             var elegidos = array_range(-1,capacidad)
+                elegidos.fill(-1);
+             for (var i = 0; i < cargadas; i++){
+                var espacio = Math.floor(Math.random() * capacidad);
+                console.log(elegidos);
+                while (elegidos.includes(espacio)){
+                    espacio = Math.floor(Math.random() * capacidad);
+                }
+                 elegidos[i] = espacio; 
+                revolver[espacio] = 1;
+            }
+             document.getElementById('cylinderSpin').play();
+             console.log(revolver);
+        }
+        
+        var ordenBala = 0;
+        var status = document.getElementById("statusDisparo");
+        
+        console.log(status);
+    
+        function dispararRevolver() {
+            console.log(revolver[ordenBala]);
+            var elDiv = document.getElementById("divStatus");
+            var para = document.createElement("p");
+            var node;
+            if (revolver[ordenBala] == 1){
+                node = document.createTextNode("Ya te moriste alv xd")
+                para.appendChild(node);
+                elDiv.appendChild(para);
+                document.getElementById('bulletShot').play();
+            }
+            else {
+                node = document.createTextNode("Te salvaste OwO");
+                para.appendChild(node);
+                elDiv.appendChild(para);
+                document.getElementById("noBulletShot").play();
+            }
+            ordenBala++;
+        }
+    
+         function resetRevolver(){
+            ordenBala = 0;
+            document.getElementById("divStatus").innerHTML = "";
+            document.getElementById('revolverReload').play();
+        }
+
     function team2(){
         loadJSON('/all3',function(response){
             let files = JSON.parse(response);

@@ -436,7 +436,7 @@ app.post("/eliminar",(request,response)=> {
       break;    
     }
   }
-  response.redirect('randomGame/randomGame.html');
+  response.redirect('randomGame1/randomGame1.html');
 });
 
 app.post("/eliminar2",(request,response)=> {

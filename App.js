@@ -438,7 +438,7 @@ app.post("/eliminar",(request,response)=> {
       break;    
     }
   }
-  res.redirect('randomGame/randomGame.html');
+  response.redirect('randomGame/randomGame.html');
 });
 
 app.post("/eliminar2",(request,response)=> {
@@ -460,7 +460,7 @@ app.post("/eliminar2",(request,response)=> {
       break;    
     }
   }
-  res.redirect('randomGame2/randomGame2.html');
+  response.redirect('randomGame2/randomGame2.html');
 });
 
 app.post("/eliminar3",(request,response)=> {
@@ -477,12 +477,10 @@ app.post("/eliminar3",(request,response)=> {
         if (err) throw err;
         console.log('public/randomGame3/photo-storage/'+lol);
       });
-
-      response.send("hola");
       break;    
     }
   }
-  res.redirect('randomGame3/randomGame3.html');
+  response.redirect('randomGame3/randomGame3.html');
 });
 
 app.post("/eliminar4",(request,response)=> {
@@ -499,12 +497,10 @@ app.post("/eliminar4",(request,response)=> {
         if (err) throw err;
         console.log('public/randomGame4/photo-storage/'+lol);
       });
-
-      response.send("hola");
       break;    
     }
   }
-  res.redirect('randomGame4/randomGame4.html');
+  response.redirect('randomGame4/randomGame4.html');
 });
 
 app.post("/eliminar5",(request,response)=> {
@@ -521,10 +517,8 @@ app.post("/eliminar5",(request,response)=> {
         if (err) throw err;
         console.log('public/randomGame5/photo-storage/'+lol);
       });
-
-      response.send("hola");
       break;    
     }
   }
-  res.redirect('randomGame5/randomGame5.html');
+  response.redirect('randomGame5/randomGame5.html');
 });

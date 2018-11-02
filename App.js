@@ -433,8 +433,6 @@ app.post("/eliminar",(request,response)=> {
         if (err) throw err;
         console.log('public/randomGame1/photo-storage/'+lol);
       });
-
-      response.send("hola");
       break;    
     }
   }
@@ -455,8 +453,6 @@ app.post("/eliminar2",(request,response)=> {
         if (err) throw err;
         console.log('public/randomGame2/photo-storage/'+lol);
       });
-
-      response.send("hola");
       break;    
     }
   }

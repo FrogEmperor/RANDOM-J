@@ -67,7 +67,6 @@ app.get('/', function(req, res){
 app.post('/upload',multer(multerConfig).single('foto'),function(req,res){
   
   // Cambiando el nombre
-
   let nombre = req.body.nombre;
       console.log(nombre);
   var i=0;
@@ -76,8 +75,8 @@ app.post('/upload',multer(multerConfig).single('foto'),function(req,res){
     i+=1;
   }
 
-  fs.rename('./public/randomGame1/photo-storage/'+files[i-1], './public/randomGame1/photo-storage/'+ nombre + '.jpeg', (err) => {
-  if (err) throw err;
+  fs.rename('./public/randomGame1/photo-storage/' + files[i-1], './public/randomGame1/photo-storage/'+ nombre + '.jpeg', (err) => {
+  if (err) console.log(err);
   console.log('Rename complete!');
   });
   

@@ -109,7 +109,7 @@ const multerConfig2 = {
 storage: multer.diskStorage({
 
  destination: function(req, file, next){
-   next(null, './public/randomGame2/photo-storage2');
+   next(null, './public/randomGame2/photo-storage');
    },   
     
     filename: function(req, file, next){
@@ -161,7 +161,7 @@ app.post('/upload2',multer(multerConfig2).single('foto'),function(req,res){
     i+=1;
   }
 
-  fs.rename('./public/randomGame2/photo-storage2/'+files2[i-1], './public/randomGame2/photo-storage2/'+ nombre + '.jpeg', (err) => {
+  fs.rename('./public/randomGame2/photo-storage/'+files2[i-1], './public/randomGame2/photo-storage/'+ nombre + '.jpeg', (err) => {
   if (err) throw err;
   console.log('Rename complete!');
   });
@@ -188,7 +188,7 @@ const multerConfig3 = {
 storage: multer.diskStorage({
 
  destination: function(req, file, next){
-   next(null, './public/randomGame3/photo-storage3');
+   next(null, './public/randomGame3/photo-storage');
    },   
     
     filename: function(req, file, next){
@@ -240,7 +240,7 @@ app.post('/upload3',multer(multerConfig3).single('foto'),function(req,res){
     i+=1;
   }
 
-  fs.rename('./public/randomGame3/photo-storage3/'+files3[i-1], './public/randomGame3/photo-storage3/'+ nombre + '.jpeg', (err) => {
+  fs.rename('./public/randomGame3/photo-storage/'+files3[i-1], './public/randomGame3/photo-storage/'+ nombre + '.jpeg', (err) => {
   if (err) throw err;
   console.log('Rename complete!');
   });
@@ -267,7 +267,7 @@ const multerConfig4 = {
 storage: multer.diskStorage({
 
  destination: function(req, file, next){
-   next(null, './public/randomGame4/photo-storage4');
+   next(null, './public/randomGame4/photo-storage');
    },   
     
     filename: function(req, file, next){
@@ -319,7 +319,7 @@ app.post('/upload4',multer(multerConfig4).single('foto'),function(req,res){
     i+=1;
   }
 
-  fs.rename('./public/randomGame4/photo-storage4/'+files4[i-1], './public/randomGame4/photo-storage4/'+ nombre + '.jpeg', (err) => {
+  fs.rename('./public/randomGame4/photo-storage/'+files4[i-1], './public/randomGame4/photo-storage/'+ nombre + '.jpeg', (err) => {
   if (err) throw err;
   console.log('Rename complete!');
   });
@@ -346,7 +346,7 @@ const multerConfig5 = {
 storage: multer.diskStorage({
 
  destination: function(req, file, next){
-   next(null, './public/randomGame5/photo-storage5');
+   next(null, './public/randomGame5/photo-storage');
    },   
     
     filename: function(req, file, next){
@@ -398,7 +398,7 @@ app.post('/upload5',multer(multerConfig5).single('foto'),function(req,res){
     i+=1;
   }
 
-  fs.rename('./public/randomGame5/photo-storage5/'+files5[i-1], './public/randomGame5/photo-storage5/'+ nombre + '.jpeg', (err) => {
+  fs.rename('./public/randomGame5/photo-storage/'+files5[i-1], './public/randomGame5/photo-storage/'+ nombre + '.jpeg', (err) => {
   if (err) throw err;
   console.log('Rename complete!');
   });

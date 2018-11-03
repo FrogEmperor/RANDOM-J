@@ -16,7 +16,7 @@ xobj.onreadystatechange = function () {
 xobj.send(null);  
 }
 
-loadJSON('/all', function(response){
+loadJSON('/all2', function(response){
 let files = JSON.parse(response);
 let FilesLength = Object.keys(files).length;
 console.log(files);
@@ -44,7 +44,7 @@ for(i=0;i<FilesLength;i++){
 var currentImage;
 
 function displayNextImage() {
-    loadJSON("/all", function(response){
+    loadJSON("/all2", function(response){
         let files = JSON.parse(response);
     
         let FilesLength = Object.keys(files).length;

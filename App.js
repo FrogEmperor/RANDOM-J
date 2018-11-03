@@ -69,7 +69,7 @@ app.post('/upload',multer(multerConfig).single('foto'),function(req,res){
   // Cambiando el nombre
 
   let nombre = req.body.nombre;
-      
+      console.log(nombre);
   var i=0;
 
   while(files[i]){

@@ -1,4 +1,7 @@
 
+var listaNombres = document.getElementById("nombre");
+    listaNombres.style.display = "block";
+
 function loadJSON(file, callback) {   
 
     var xobj = new XMLHttpRequest();
@@ -48,7 +51,11 @@ loadJSON('/all', function(response){
 
             let x = -1;
 
-            x = (x === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength); // el 3 es 
+            do {
+                x = Math.floor(Math.random() * FilesLength);
+            }
+            while(files[x] == currentImage);
+            
             if(files[x]!="borrado"){
                 var checkB = document.getElementById(files[x]);
 

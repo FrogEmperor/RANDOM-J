@@ -1,73 +1,81 @@
+
+var listaNombres = document.getElementById("nombre");
+listaNombres.style.display = "block";
+
 function loadJSON(file, callback) {   
 
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
-    xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-            callback(xobj.responseText);
-          }
-    };
-    xobj.send(null);  
- }
+var xobj = new XMLHttpRequest();
+xobj.overrideMimeType("application/json");
+xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
+xobj.onreadystatechange = function () {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+        callback(xobj.responseText);
+      }
+};
+xobj.send(null);  
+}
 
-loadJSON('/all5', function(response){
-    let files = JSON.parse(response);
-    let FilesLength = Object.keys(files).length;
-    console.log(files);
-    for(i=0;i<FilesLength;i++){
-        console.log(files[i]);
-        if(files[i]!="borrado"){
-            var file = files[i].replace(".jpeg",""); 
-            
-            let checkbox = document.createElement('input');
-            checkbox.type = "checkbox";
-            checkbox.name = "name";
-            checkbox.value = "value";
-            checkbox.id = files[i];
+loadJSON('/all', function(response){
+let files = JSON.parse(response);
+let FilesLength = Object.keys(files).length;
+console.log(files);
+for(i=0;i<FilesLength;i++){
+    console.log(files[i]);
+    if(files[i]!="borrado"){
+        var file = files[i].replace(".jpeg",""); 
+        
+        let checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.name = "name";
+        checkbox.value = "value";
+        checkbox.id = files[i];
 
 
-            let lista = document.createElement('li');
-            lista.appendChild(checkbox);
-            let newText = document.createTextNode(file);
-            lista.appendChild(newText)
-            document.getElementById("nombre").appendChild(lista);  
-        }
-    }  
+        let lista = document.createElement('li');
+        lista.appendChild(checkbox);
+        let newText = document.createTextNode(file);
+        lista.appendChild(newText)
+        document.getElementById("nombre").appendChild(lista);  
+    }
+}  
 
 });
-    var currentImage;
+var currentImage;
+
+function displayNextImage() {
+    loadJSON("/all", function(response){
+        let files = JSON.parse(response);
     
-    function displayNextImage() {
-        loadJSON("/all5", function(response){
-            let files = JSON.parse(response);
+        let FilesLength = Object.keys(files).length;
+
+        let x = -1;
+
+        do {
+            x = Math.floor(Math.random() * FilesLength);
+        }
+        while(files[x] == currentImage);
         
-            let FilesLength = Object.keys(files).length;
+        if(files[x]!="borrado"){
+            var checkB = document.getElementById(files[x]);
 
-            let x = -1;
-
-            x = (x === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength); // el 3 es 
-            if(files[x]!="borrado"){
-                var checkB = document.getElementById(files[x]);
-
-                if(!checkB.checked){
-                document.getElementById("img").src = "photo-storage/" + files[x];
-                currentImage = files[x];  
-                }
+            if(!checkB.checked){
+            document.getElementById("img").src = "photo-storage/" + files[x];
+            currentImage = files[x];  
             }
-        })    
-    }
+        }
+    })    
+}
 
-    var cycle;
+var cycle;
 
-    function activeCycle(){
-        cycle = setInterval(displayNextImage, 200);
-        setTimeout(function(){
-            clearInterval(cycle);
-            console.log(currentImage);
-        },5000);
-    }
+function activeCycle(){
+    cycle = setInterval(displayNextImage, 200);
+    setTimeout(function(){
+        clearInterval(cycle);
+        console.log(currentImage);
+    },5000);
+}
 
         //TODO ESTO ES DE LA RULETA RUSAAAAAAAAA A PARTIR DE AQUI EQUISDEEQUISDEEQUISDE
         var menuRuleta = document.getElementById("ruletaDiv");

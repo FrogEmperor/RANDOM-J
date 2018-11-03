@@ -39,7 +39,7 @@ storage: multer.diskStorage({
 
     		let data = JSON.stringify(files, null, 2);
 
-    		fs.writeFile('FILE.json', data);
+    		fs.writeFile('FILE.json', data, null);
 
       }
     }),   
@@ -85,7 +85,7 @@ app.post('/upload',multer(multerConfig).single('foto'),function(req,res){
 
   let data = JSON.stringify(files, null, 2);
 
-  fs.writeFile('FILE.json', data);
+  fs.writeFile('FILE.json', data, null);
 
   res.redirect('randomGame1/randomGame1.html');
 });
@@ -129,7 +129,7 @@ storage: multer.diskStorage({
 
         let data = JSON.stringify(files2, null, 2);
 
-        fs.writeFile('FILE2.json', data2);
+        fs.writeFile('FILE2.json', data2, null);
 
       }
     }),   
@@ -171,7 +171,7 @@ app.post('/upload2',multer(multerConfig2).single('foto'),function(req,res){
 
   let data2 = JSON.stringify(files2, null, 2);
 
-  fs.writeFile('FILE2.json', data2);
+  fs.writeFile('FILE2.json', data2, null);
   res.redirect('randomGame2/randomGame2.html');
 });
 
@@ -208,7 +208,7 @@ storage: multer.diskStorage({
 
         let data = JSON.stringify(files3, null, 2);
 
-        fs.writeFile('FILE3.json', data3);
+        fs.writeFile('FILE3.json', data3, null);
 
       }
     }),   
@@ -250,7 +250,7 @@ app.post('/upload3',multer(multerConfig3).single('foto'),function(req,res){
 
   let data3 = JSON.stringify(files3, null, 2);
 
-  fs.writeFile('FILE3.json', data3);
+  fs.writeFile('FILE3.json', data3, null);
   res.redirect('randomGame3/randomGame3.html');
 });
 
@@ -287,7 +287,7 @@ storage: multer.diskStorage({
 
         let data = JSON.stringify(files4, null, 2);
 
-        fs.writeFile('FILE4.json', data4);
+        fs.writeFile('FILE4.json', data4, null);
 
       }
     }),   
@@ -329,7 +329,7 @@ app.post('/upload4',multer(multerConfig4).single('foto'),function(req,res){
 
   let data4 = JSON.stringify(files4, null, 2);
 
-  fs.writeFile('FILE4.json', data4);
+  fs.writeFile('FILE4.json', data4, null);
   res.redirect('randomGame4/randomGame4.html');
 });
 
@@ -366,7 +366,7 @@ storage: multer.diskStorage({
 
         let data = JSON.stringify(files5, null, 2);
 
-        fs.writeFile('FILE5.json', data5);
+        fs.writeFile('FILE5.json', data5, null);
 
       }
     }),   
@@ -408,7 +408,7 @@ app.post('/upload5',multer(multerConfig5).single('foto'),function(req,res){
 
   let data5 = JSON.stringify(files5, null, 2);
 
-  fs.writeFile('FILE5.json', data5);
+  fs.writeFile('FILE5.json', data5, null);
 
   res.redirect('randomGame5/randomGame5.html');
 });
@@ -427,7 +427,7 @@ app.post("/eliminar",(request,response)=> {
     if(files[i]==lol){
       files[i]="borrado";
       let data = JSON.stringify(files, null, 2);
-      fs.writeFile('FILE.json', data);
+      fs.writeFile('FILE.json', data, null);
 
       fs.unlink('public/randomGame1/photo-storage/'+lol, (err) => {
         if (err) throw err;
@@ -447,7 +447,7 @@ app.post("/eliminar2",(request,response)=> {
     if(files2[i]==lol){
       files2[i]="borrado";
       let data2 = JSON.stringify(files2, null, 2);
-      fs.writeFile('FILE2.json', data2);
+      fs.writeFile('FILE2.json', data2, null);
 
       fs.unlink('public/randomGame2/photo-storage/'+lol, (err) => {
         if (err) throw err;
@@ -467,7 +467,7 @@ app.post("/eliminar3",(request,response)=> {
     if(files3[i]==lol){
       files3[i]="borrado";
       let data3 = JSON.stringify(files3, null, 2);
-      fs.writeFile('FILE.json', data3);
+      fs.writeFile('FILE.json', data3, null);
 
       fs.unlink('public/randomGame3/photo-storage/'+lol, (err) => {
         if (err) throw err;
@@ -487,7 +487,7 @@ app.post("/eliminar4",(request,response)=> {
     if(files4[i]==lol){
       files4[i]="borrado";
       let data4 = JSON.stringify(files4, null, 2);
-      fs.writeFile('FILE.json', data4);
+      fs.writeFile('FILE.json', data4, null);
 
       fs.unlink('public/randomGame4/photo-storage/'+lol, (err) => {
         if (err) throw err;
@@ -507,7 +507,7 @@ app.post("/eliminar5",(request,response)=> {
     if(files5[i]==lol){
       files5[i]="borrado";
       let data5 = JSON.stringify(files5, null, 2);
-      fs.writeFile('FILE.json', data5);
+      fs.writeFile('FILE.json', data5, null);
 
       fs.unlink('public/randomGame5/photo-storage/'+lol, (err) => {
         if (err) throw err;

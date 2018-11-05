@@ -64,6 +64,7 @@ loadJSON('/all', function(response){
                 currentImage = files[x];  
                 }
             }
+            document.getElementById("nombreDelElegido").innerHTML = currentImage.replace(".jpeg","");
         })    
     }
 

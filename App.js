@@ -466,7 +466,7 @@ app.post("/eliminar3",(request,response)=> {
     if(files3[i]==lol){
       files3[i]="borrado";
       let data3 = JSON.stringify(files3, null, 2);
-      fs.writeFile('FILE.json', data3, emptyCallback);
+      fs.writeFile('FILE3.json', data3, emptyCallback);
 
       fs.unlink('public/randomGame3/photo-storage/'+lol, (err) => {
         if (err) throw err;
@@ -486,7 +486,7 @@ app.post("/eliminar4",(request,response)=> {
     if(files4[i]==lol){
       files4[i]="borrado";
       let data4 = JSON.stringify(files4, null, 2);
-      fs.writeFile('FILE.json', data4, emptyCallback);
+      fs.writeFile('FILE4.json', data4, emptyCallback);
 
       fs.unlink('public/randomGame4/photo-storage/'+lol, (err) => {
         if (err) throw err;
@@ -506,7 +506,7 @@ app.post("/eliminar5",(request,response)=> {
     if(files5[i]==lol){
       files5[i]="borrado";
       let data5 = JSON.stringify(files5, null, 2);
-      fs.writeFile('FILE.json', data5, emptyCallback);
+      fs.writeFile('FILE5.json', data5, emptyCallback);
 
       fs.unlink('public/randomGame5/photo-storage/'+lol, (err) => {
         if (err) throw err;

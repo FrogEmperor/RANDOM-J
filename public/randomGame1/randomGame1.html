@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../estilo.css">
+	
 </head>
 <body>
 	
@@ -19,60 +20,72 @@
  	<audio id="revolverReload">
 		<source src="../sound-files/revolver_reload.mp3" type="audio/mpeg">
 	</audio>
+	<div class="row">
+			<div class="column left">
+					<form action="/upload" enctype="multipart/form-data" method="POST"> 
+						<input type="file" name="foto" />
+						</br>
+						<input type="text" name="nombre" />
+						<input type="submit" value="subir"/>
+					</form>
+					</br>
+					<a href="../5grupos.html" class="buttonRegresar">REGRESAR</a>
+					</br>
+					</br>
+					<form action="/eliminar" method="POST">
+						<input type="text" name="alumno" />
+						<input type="submit" value="Eliminar"/>
+					</form>
+			
+					<ul id="nombre">
+					</ul>
+				</div>
+			<div class="column middle">
+					<div id="equiposBotones">
+							<button onclick="activeCycle();">Ciclar</button>
+							</br>
+							</br>
+							
+							<button onclick="team2()">2 Equipos</button>
+							<button onclick="team3()">3 Equipos</button>
+							<button onclick="team4()">4 Equipos</button>
+							<button onclick="team5()">5 Equipos</button>
+								
+							</br>
+							</br>
+							<button onclick="modoRuleta()">Ruleta rusa</button>
+						</div>
+						</br>
+						</br>
+						<h2 id = "nombreDelElegido">TU NOMBRE AQUI xd</h2>
+						</br>
+							<img id="img" src="../photo default/defaultDance.jpeg">
+							
+						
+							<div id="ruletaDiv">
+								<p>Espacios en el cilindro</p>
+								<input type="number" id="espaciosCilindro">
+								<p>Balas cargadas</p>
+								<input type="text" id="balasCargadas">
+							</br>
+							</br>
+							<button onclick="setupRevolver()">Cargar revolver</button>
+							<button onclick="dispararRevolver()">Disparar</button>
+							<button onclick="resetRevolver()">Vaciar revolver</button>
+							<div id = "divStatus">
+							 </div>
+						</div>
+						</br>
+						</br>
+						
+							<div id="tabla">
+							</div>
+			</div>
+			<div class="column right">
 
-	<form action="/upload" enctype="multipart/form-data" method="POST"> 
-    	<input type="file" name="foto" />
-    	</br>
-    	<input type="text" name="nombre" />
-    	<input type="submit" value="subir"/>
-	</form>
-	</br>
-	<a href="../5grupos.html">REGRESAR</a>
-	<form action="/eliminar" method="POST">
-		<input type="text" name="alumno" />
-		<input type="submit" value="Eliminar"/>
-	</form>
-
-	<ul id="nombre">
-	</ul>
-
-<div id="equiposBotones">
-	<button onclick="activeCycle();">Ciclar</button>
-	</br>
-	</br>
-	
-	<button onclick="team2()">2 Equipos</button>
-	<button onclick="team3()">3 Equipos</button>
-	<button onclick="team4()">4 Equipos</button>
-	<button onclick="team5()">5 Equipos</button>
-		
-	</br>
-	</br>
-	<button onclick="modoRuleta()">Ruleta rusa</button>
-</div>
-</br>
-</br>
-	<img id="img" src="../photo default/defaultDance.jpeg">
-	
-
-	<div id="ruletaDiv">
-		<p>Espacios en el cilindro</p>
-		<input type="number" id="espaciosCilindro">
-		<p>Balas cargadas</p>
-		<input type="text" id="balasCargadas">
-	</br>
-	</br>
-	<button onclick="setupRevolver()">Cargar revolver</button>
-	<button onclick="dispararRevolver()">Disparar</button>
-	<button onclick="resetRevolver()">Vaciar revolver</button>
-	<div id = "divStatus">
-	 </div>
-</div>
-</br>
-</br>
-
-	<div id="tabla">
+			</div>
 	</div>
+
 
 	<script type="text/javascript" src="random.js"></script>
 </body>

@@ -172,7 +172,7 @@ function activeCycle(){
                 if(files[i]!="borrado"){
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                     
-                    while(ran.includes(files[f])){
+                    while(ran.includes(files[f]) || files[f] == "borrado"){
                         f =-1;
                         f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                     }
@@ -185,12 +185,12 @@ function activeCycle(){
                     z++;
                     if(x==0){
                         var cell1 = row.insertCell(c);
-                        cell1.innerHTML = files[f];
+                        cell1.innerHTML = files[f].replace(".jpeg", "");
                         x=1;
                     }
                     else if(x==1){
                         var cell2 = row.insertCell(c);
-                        cell2.innerHTML = files[f];
+                        cell2.innerHTML = files[f].replace(".jpeg", "");
                         x=0;
                     }
 
@@ -219,7 +219,7 @@ function activeCycle(){
                 if(files[i]!="borrado"){
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                     
-                    while(ran.includes(files[f])){
+                    while(ran.includes(files[f]) || files[f] == "borrado"){
                         f =-1;
                         f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                     }
@@ -232,17 +232,17 @@ function activeCycle(){
                     z++;
                     if(x==0){
                         var cell1 = row.insertCell(c);
-                        cell1.innerHTML = files[f];
+                        cell1.innerHTML = files[f].replace(".jpeg", "");
                         x=1;
                     }
                     else if(x==1){
                         var cell2 = row.insertCell(c);
-                        cell2.innerHTML = files[f];
+                        cell2.innerHTML = files[f].replace(".jpeg", "");
                         x=2;
                     }
                     else if(x==2){
                         var cell3 = row.insertCell(c);
-                        cell3.innerHTML = files[f];
+                        cell3.innerHTML = files[f].replace(".jpeg", "");
                         x=0;
                     }
                     c++
@@ -270,7 +270,7 @@ function activeCycle(){
                 if(files[i]!="borrado"){
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                     
-                    while(ran.includes(files[f])){
+                    while(ran.includes(files[f]) || files[f] == "borrado"){
                         f =-1;
                         f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                     }
@@ -283,22 +283,22 @@ function activeCycle(){
                     z++;
                     if(x==0){
                         var cell1 = row.insertCell(c);
-                        cell1.innerHTML = files[f];
+                        cell1.innerHTML = files[f].replace(".jpeg", "");
                         x=1;
                     }
                     else if(x==1){
                         var cell2 = row.insertCell(c);
-                        cell2.innerHTML = files[f];
+                        cell2.innerHTML = files[f].replace(".jpeg", "");
                         x=2;
                     }
                     else if(x==2){
                         var cell3 = row.insertCell(c);
-                        cell3.innerHTML = files[f];
+                        cell3.innerHTML = files[f].replace(".jpeg", "");
                         x=3;
                     }
                     else if(x==3){
                         var cell4 = row.insertCell(c);
-                        cell4.innerHTML = files[f];
+                        cell4.innerHTML = files[f].replace(".jpeg", "");
                         x=0;
                     }
                     c++
@@ -326,7 +326,7 @@ function activeCycle(){
                 if(files[i]!="borrado"){
                     f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                     
-                    while(ran.includes(files[f])){
+                    while(ran.includes(files[f]) || files[f] == "borrado"){
                         f =-1;
                         f = (f === files.length - 1) ? 0 : Math.floor(Math.random() * FilesLength);
                     }
@@ -339,27 +339,27 @@ function activeCycle(){
                     z++;
                     if(x==0){
                         var cell1 = row.insertCell(c);
-                        cell1.innerHTML = files[f];
+                        cell1.innerHTML = files[f].replace(".jpeg", "");
                         x=1;
                     }
                     else if(x==1){
                         var cell2 = row.insertCell(c);
-                        cell2.innerHTML = files[f];
+                        cell2.innerHTML = files[f].replace(".jpeg", "");
                         x=2;
                     }
                     else if(x==2){
                         var cell3 = row.insertCell(c);
-                        cell3.innerHTML = files[f];
+                        cell3.innerHTML = files[f].replace(".jpeg", "");
                         x=3;
                     }
                     else if(x==3){
                         var cell4 = row.insertCell(c);
-                        cell4.innerHTML = files[f];
+                        cell4.innerHTML = files[f].replace(".jpeg", "");
                         x=4;
                     }
                     else if(x==4){
                         var cell5 = row.insertCell(c);
-                        cell5.innerHTML = files[f];
+                        cell5.innerHTML = files[f].replace(".jpeg", "");
                         x=0;
                     }
                     c++

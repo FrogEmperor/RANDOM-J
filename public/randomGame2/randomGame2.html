@@ -3,7 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="../estilo.css">
 </head>
 <body>
-	
+	<input type="hidden" id="guia" value="2" />
 	<audio id="bulletShot">
 		<source src="../sound-files/bulletShot.mp3" type="audio/mpeg">
 	</audio>
@@ -20,7 +20,8 @@
 	</audio>
 	<div class="row">
 			<div class="column left">
-					<form action="/upload2" enctype="multipart/form-data" method="POST"> 
+					<form action="/upload" enctype="multipart/form-data" method="POST">
+						<input type="hidden" name="lugar" value="2" /> 
 						<input type="file" name="foto" />
 						</br>
 						<input type="text" name="nombre" />
@@ -30,7 +31,8 @@
 					<a href="../5grupos.html" class="buttonRegresar">REGRESAR</a>
 					</br>
 					</br>
-					<form action="/eliminar2" method="POST">
+					<form action="/eliminar" method="POST">
+						<input type="hidden" name="lugar" value="2" />
 						<input type="text" name="alumno" />
 						<input type="submit" value="Eliminar"/>
 					</form>
@@ -40,14 +42,14 @@
 				</div>
 			<div class="column middle">
 					<div id="equiposBotones">
-							<button onclick="activeCycle();">Ciclar</button>
+							<button onclick="activeCycle(2);">Ciclar</button>
 							</br>
 							</br>
 							
-							<button onclick="team2()">2 Equipos</button>
-							<button onclick="team3()">3 Equipos</button>
-							<button onclick="team4()">4 Equipos</button>
-							<button onclick="team5()">5 Equipos</button>
+							<button onclick="team(2,2)">2 Equipos</button>
+							<button onclick="team(3,2)">3 Equipos</button>
+							<button onclick="team(4,2)">4 Equipos</button>
+							<button onclick="team(5,2)">5 Equipos</button>
 								
 							</br>
 							</br>
@@ -83,6 +85,6 @@
 
 			</div>
 	</div>
-	<script type="text/javascript" src="random2.js"></script>
+	<script type="text/javascript" src="../random.js"></script>
 </body>
 </html>
